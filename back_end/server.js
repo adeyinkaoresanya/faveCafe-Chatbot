@@ -45,19 +45,19 @@ server.listen(PORT, ()=>{
 const levels = {};
 
 io.on("connection", async (socket) => {
-	// get the session
+	
 	const session = socket.request.session;
-	// console.log(session)
+	
 	const sessionId = session.id;
 	console.log(sessionId);  
 	saveSessionID(sessionId);
-	//connect users with the same session id
+	
 	socket.join(sessionId);
-	//welcome users to chat bot 
+	
 	welcomeMessage(io, sessionId);
 	loadMessage(io, sessionId);
 
-	//listen for user message
+	
 	levels[sessionId] = 0;
 	socket.on("private message", async (msg) => {
 		let userMessage = formatChat("You", msg);
