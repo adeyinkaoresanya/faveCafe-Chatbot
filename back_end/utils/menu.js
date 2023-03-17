@@ -1,5 +1,5 @@
 const mainMenu = [
-	{ number: 1, text: "Place An Order" },
+	{ number: 1, text: "Place an Order" },
 	{ number: 99, text: "Checkout Order" },
 	{ number: 98, text: "Check Order History" },
 	{ number: 97, text: "Check Current Order" },
