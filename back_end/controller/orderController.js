@@ -28,7 +28,7 @@ const loadMessage = async (io, sessionID) => {
 const welcomeMessage = (io, sessionID) => {
 	io.to(sessionID).emit(
 		"bot message",
-		formatChat(botName, "Welcome to faveCafe's! We have a variety of steaming options for you. <br> Enter START to continue")
+		formatChat(botName, "Welcome to faveCafe's! We have a variety of steaming options for you. <br> Enter START to continue.")
 	);
 };
 
