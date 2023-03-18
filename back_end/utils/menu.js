@@ -12,7 +12,7 @@ const foodMenu = [
 	{ number: 3, food: "Cappucino", price: 4.36 },
 	{ number: 4, food: "Bagel", price: 2.00 },
 	{ number: 5, food: "Croissant", price: 2.00 },
-    { number: 6, food: "Cupcake", price: 5.00 },
+    
 ];
 
 module.exports = {
