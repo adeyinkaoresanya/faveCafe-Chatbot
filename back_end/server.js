@@ -41,7 +41,7 @@ app.get("/", async (req, res) => {
       res.sendFile(__dirname + "/index.html");
     } catch (err) {
       console.log(err);
-      res.status(500).send("Error serving restaurant.html");
+      res.status(500).send("Error serving chatbot");
     }
   });
 
