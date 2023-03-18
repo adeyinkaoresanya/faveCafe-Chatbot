@@ -34,7 +34,16 @@ db.connectToMongoDB();
 app.use(storedSession);
 io.engine.use(storedSession);
 
-app.use(express.static(path.join(__dirname, "front_end")));
+app.use(express.static("front_end"));
+
+app.get("/", async (req, res) => {
+    try {
+      res.sendFile(__dirname + "/index.html");
+    } catch (err) {
+      console.log(err);
+      res.status(500).send("Error serving restaurant.html");
+    }
+  });
 
 
 server.listen(PORT, ()=>{
