@@ -36,15 +36,6 @@ io.engine.use(storedSession);
 
 app.use(express.static("front_end"));
 
-app.get("/", async (req, res) => {
-    try {
-      res.sendFile(__dirname + "/index.html");
-    } catch (err) {
-      console.log(err);
-      res.status(500).send("Error serving chatbot");
-    }
-  });
-
 
 server.listen(PORT, ()=>{
     console.log(`Server is listening at port ${PORT}`)
