@@ -9,9 +9,9 @@ const io = require("socket.io")(server);
 const PORT= process.env.PORT
 const botName = process.env.botName
 
-const db = require("./db/db");
+const db = require("./back_end/db/db");
 
-const storedSession = require("./middleware/storedSession");
+const storedSession = require("./back_end/middleware/storedSession");
 
 const {
 	saveSessionID,
@@ -23,18 +23,18 @@ const {
 	orderHistory,
 	currentOrder,
 	cancelOrder,
-	saveOrder, }  = require("./controller/orderController");
+	saveOrder, }  = require("./back_end/controller/orderController");
 
 
-const formatChat = require("./utils/formatChat");
-const chatModel = require("./models/chatModel");
+const formatChat = require("./back_end/utils/formatChat");
+const chatModel = require("./back_end/models/chatModel");
 
 db.connectToMongoDB();
 
 app.use(storedSession);
 io.engine.use(storedSession);
 
-app.use(express.static("front_end"));
+app.use(express.static(path.join(__dirname, "front_end")));
 
 
 server.listen(PORT, ()=>{
