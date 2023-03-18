@@ -2,51 +2,13 @@ html {
 	box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
-	margin: 0;
-	padding: 0;
-	box-sizing: inherit;
-}
-
-
-
-.chat-body::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
-}
-
-.chat-body::-webkit-scrollbar
-{
-	width: 6px;
-	background-color: #F5F5F5;
-}
-
-.chat-body::-webkit-scrollbar-thumb
-{
-	background-color: #000000;
-}
-
-
 
 body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-  background-image: linear-gradient(45deg, #2B0F0E, #4d4848);
 	font-family: "Bradley Hand", cursive;
-}
-
-.container {
-  width: 80%;
-  max-width: 800px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 5px;
-  
 }
 
 .chat-header{
@@ -54,7 +16,6 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px 0;
-  
   margin: auto;
 }
 
@@ -79,26 +40,15 @@ body {
   flex-direction: column;
   align-items: flex-start;
   padding: 0 10px;
-  background-color: #f9f8eb;
+  background-color:  #9b3b00;
   max-width: 80%;
   overflow-wrap: break-word;
   margin-bottom: 10px;
   padding: 5px 10px;
   border-radius: 5px;
+  color: #fff;
 }
-.meta{
-  font-size: 0.8rem;
-  color: #999;
-  margin-bottom: 5px;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  font-weight: bold;
 
-}
-.meta span{
-  font-weight: 500;
-}
 .bot{
   align-self: flex-start;
   width: fit-content;
@@ -119,20 +69,18 @@ body {
 #chat-form input{
   flex: 1;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #2B0F0E;
   border-radius: 5px;
   outline: none;
   margin-right: 10px;
 }
+
 #chat-form button{
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background: #333;
+  background:#2B0F0E;
   color: #fff;
   cursor: pointer;
   outline: none;
-}
-#chat-form button:hover{
-  background: #555;
 }

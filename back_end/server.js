@@ -9,24 +9,24 @@ const io = require("socket.io")(server);
 const PORT= process.env.PORT
 const botName = process.env.botName
 
-const db = require("./db");
+const db = require("./db/db");
 
 const storedSession = require("./middleware/storedSession");
+
 const {
 	saveSessionID,
 	loadMessage,
 	welcomeMessage,
-	MenuoftheDay,
-	menu,
+	MainMenu,
+	menuoftheDay,
 	checkOutOrder,
 	orderHistory,
 	currentOrder,
 	cancelOrder,
-	saveOrder,
-} = require("./controller/orderController");
+	saveOrder, }  = require("./controller/orderController");
 
 
-const formatChat = require("./utils/chat");
+const formatChat = require("./utils/formatChat");
 const chatModel = require("./models/chatModel");
 
 db.connectToMongoDB();
@@ -48,8 +48,7 @@ io.on("connection", async (socket) => {
 	
 	const session = socket.request.session;
 	
-	const sessionId = session.id;
-	console.log(sessionId);  
+	const sessionId = session.id; 
 	saveSessionID(sessionId);
 	
 	socket.join(sessionId);
@@ -67,12 +66,12 @@ io.on("connection", async (socket) => {
 
 		switch (levels[sessionId]) {
 			case 0:
-				botMessage = await MenuoftheDay(io, sessionId);
+				botMessage = await MainMenu(io, sessionId);
 				levels[sessionId] = 1;
 				break;
 			case 1:
 				if (number === 1) {
-					botMessage = await menu(io, sessionId);
+					botMessage = await menuoftheDay(io, sessionId);
 					levels[sessionId] = 2;
 					return;
 				} else if (number === 99) {
@@ -92,6 +91,7 @@ io.on("connection", async (socket) => {
 					);
 					io.to(sessionId).emit("bot message", botMessage);
 				}
+                
 				levels[sessionId] = 1;
 				break;
 			case 2:

@@ -1,6 +1,6 @@
 const OrderModel = require("../models/orderModel");
 const messageModel = require("../models/chatModel");
-const formatChat = require("../utils/chat");
+const formatChat = require("../utils/formatChat");
 const { mainMenu, foodMenu } = require("../utils/menu");
 const createArray = require("../utils/createArray");
 require("dotenv").config();
@@ -32,16 +32,16 @@ const welcomeMessage = (io, sessionID) => {
 	);
 };
 
-const MenuoftheDay = (io, sessionID) => {
-	let botMessage = formatChat(botName, createArray("mainMenu",mainMenu));
+const MainMenu = (io, sessionID) => {
+	let botMessage = formatChat(botName, createArray("mainMenu", mainMenu));
 	io.to(sessionID).emit("bot message", botMessage);
 	return botMessage;
 };
 
-const menu = (io, sessionID) => {
+const menuoftheDay = (io, sessionID) => {
 	let botMessage = formatChat(
 		botName,
-		createArray("Add to your cart", foodMenu)
+		createArray("Here is our menu for today. Enter any of the options to add to your cart", foodMenu)
 	);
 	io.to(sessionID).emit("bot message", botMessage);
 	return botMessage;
@@ -185,8 +185,8 @@ module.exports = {
     saveSessionID,
     loadMessage,
     welcomeMessage,
-    MenuoftheDay,
-    menu,
+    MainMenu,
+    menuoftheDay,
     checkOutOrder,
     orderHistory,
     currentOrder,

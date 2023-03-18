@@ -1,6 +1,6 @@
 const moment = require("moment");
 
-function chat(username, text) {
+function formatChat(username, text) {
 	return {
 		username,
 		text,
@@ -8,4 +8,4 @@ function chat(username, text) {
 	};
 }
 
-module.exports = chat;
+module.exports = formatChat;
