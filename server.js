@@ -100,11 +100,16 @@ io.on("connection", async (socket) => {
 					number !== 2 &&
 					number !== 3 &&
 					number !== 4 &&
-					number !== 5
+					number !== 5 &&
+					number !== 6 &&
+					number !== 7 &&
+					number !== 8 &&
+					number !== 9 &&
+					number !== 10
 				) {
 					botMessage = await formatChat(
 						botName,
-						"You entered the wrong code. Select either 1, 2, 3, 4 or 5"
+						"You entered the wrong code. Kindly select a number between 1 and 10"
 					);
 					io.to(sessionId).emit("bot message", botMessage);
 					levels[sessionId] = 2;

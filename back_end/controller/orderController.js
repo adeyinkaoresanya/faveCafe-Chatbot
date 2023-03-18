@@ -166,6 +166,26 @@ const saveOrder = async (io, sessionID, number) => {
 		sessionOrder.currentOrder.push(foodMenu[4]);
 	}
 
+	if (number === 6) {
+		sessionOrder.currentOrder.push(foodMenu[5]);
+	}
+
+	if (number === 7) {
+		sessionOrder.currentOrder.push(foodMenu[6]);
+	}
+
+	if (number === 8) {
+		sessionOrder.currentOrder.push(foodMenu[7]);
+	}
+
+	if (number === 9) {
+		sessionOrder.currentOrder.push(foodMenu[8]);
+	}
+
+	if (number === 10) {
+		sessionOrder.currentOrder.push(foodMenu[9]);
+	}
+	
 	await sessionOrder.save();
 
 	botMessage = formatChat(
