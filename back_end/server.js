@@ -34,7 +34,7 @@ db.connectToMongoDB();
 app.use(storedSession);
 io.engine.use(storedSession);
 
-app.use(express.static("front_end"));
+app.use(express.static(path.join(__dirname, "front_end")));
 
 
 server.listen(PORT, ()=>{
